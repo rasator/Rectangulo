@@ -9,23 +9,29 @@
 #include"./Rectangulo.hpp"
 #include<string.h>
 
+using namespace std;
+
 Rectangulo::Rectangulo(int a,int l,const char* name) {
 	ancho=a;
 	largo=l;
-	auto len=strlen(name);
-	nameRect=new char[len];
-	strcpy(nameRect,name);
+	nameRect=name;
+	cout<<"Rectangle Constructor from Char*"<<endl;
+}
+
+Rectangulo::Rectangulo(int a,int l,const string& name) {
+	ancho=a;
+	largo=l;
+	nameRect=name;
+	cout<<"Rectangle Constructor from string"<<endl;;
 }
 
 Rectangulo::Rectangulo(const Rectangulo& rect) {
 	ancho=rect.ancho;
 	largo=rect.largo;
-	auto len=strlen(rect.nameRect);
-	nameRect=new char[len];
-	strcpy(nameRect,rect.nameRect);
+	nameRect=rect.nameRect;
 }
 Rectangulo::~Rectangulo() {
-	delete[] nameRect;
+	cout<<"Rectangle Destructor"<<endl;
 }
 
 int Rectangulo::getAncho() {
@@ -37,6 +43,6 @@ int Rectangulo::getLargo() {
 int Rectangulo::getVol() {
 	return ancho*largo;
 }
-char* Rectangulo::getName() {
+string& Rectangulo::getName() {
 	return nameRect;
 }

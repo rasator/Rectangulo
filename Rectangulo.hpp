@@ -8,21 +8,25 @@
 #ifndef CLASE
 #define CLASE
 
+#include<string>
+
+using namespace std;
 
 class Rectangulo {
 public:
 	Rectangulo(int a,int l,const char* name);
+	Rectangulo(int a,int l,const string& name);
 	Rectangulo(const Rectangulo& rect);
 	~Rectangulo();
 	int getAncho();
 	int getLargo();
 	int getVol();
-	char* getName();
+	string& getName();
 protected:
 private:
 	int ancho;
 	int largo;
-	char* nameRect;
+	string nameRect;
 };
 
 #endif
